@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QueueLess — Healthcare Navigation Platform</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="navbar">
+      <div class="logo">⚕️ QueueLess</div>
+      <nav id="nav">
+        <a href="#" data-page="home" class="active">Home</a>
+        <a href="#" data-page="login">Login</a>
+        <a href="#" data-page="signup" class="btn-primary-sm">Sign Up</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page active" id="page-home">
+        <div class="hero">
+          <h1>Skip the Queue.<br/>Find the Right Care, Faster.</h1>
+          <p>QueueLess routes you to the right hospital department, predicts wait times, and estimates costs — before you leave home.</p>
+          <div class="hero-btns">
+            <button class="btn-primary" onclick="navigate('signup')">Get Started</button>
+            <button class="btn-secondary" onclick="checkHealth()">Test System Health</button>
+          </div>
+          <div id="health-status" class="health-box"></div>
+        </div>
+
+        <div class="features">
+          <div class="feature-card">
+            <div class="feature-icon">🏥</div>
+            <h3>Hospital Discovery</h3>
+            <p>Browse curated hospitals, departments and specialists near you.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Symptom Routing</h3>
+            <p>Describe your problem — we map it to the right department.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <h3>Wait-Time Prediction</h3>
+            <p>Know how long you'll wait — and the best time to visit.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Cost & Schemes</h3>
+            <p>Estimate costs and check Ayushman Bharat / state scheme coverage.</p>
+          </div>
+        </div>
+
+        <div class="phase-note">
+          <strong>Phase 1 Deliverable:</strong> Full-stack skeleton — this frontend is talking to an Express backend, which is talking to a SQLite database. Try signing up below.
+        </div>
+      </section>
+
+      <section class="page" id="page-login">
+        <div class="form-container">
+          <h2>Login</h2>
+          <p class="form-sub">Welcome back to QueueLess.</p>
+          <form id="login-form">
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="you@example.com" />
+            <label>Password</label>
+            <input type="password" name="password" required placeholder="••••••••" />
+            <button type="submit" class="btn-primary full">Login</button>
+          </form>
+          <p class="form-footer">No account? <a href="#" onclick="navigate('signup')">Sign up</a></p>
+          <div id="login-msg" class="msg"></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-signup">
+        <div class="form-container">
+          <h2>Create Account</h2>
+          <p class="form-sub">Join QueueLess in 30 seconds.</p>
+          <form id="signup-form">
+            <label>Full Name</label>
+            <input type="text" name="name" required placeholder="Aarav Sharma" />
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="you@example.com" />
+            <label>Password</label>
+            <input type="password" name="password" required placeholder="min 6 characters" minlength="6" />
+            <div class="row">
+              <div>
+                <label>Age</label>
+                <input type="number" name="age" min="0" max="120" placeholder="22" />
+              </div>
+              <div>
+                <label>Location</label>
+                <input type="text" name="location" placeholder="Pune" />
+              </div>
+            </div>
+            <button type="submit" class="btn-primary full">Sign Up</button>
+          </form>
+          <p class="form-footer">Already have an account? <a href="#" onclick="navigate('login')">Login</a></p>
+          <div id="signup-msg" class="msg"></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-dashboard">
+        <div class="dashboard">
+          <h2>Welcome, <span id="dash-name">User</span> 👋</h2>
+          <p class="form-sub">You're logged in. This confirms Phase 1's full stack works end-to-end.</p>
+          <div class="profile-card">
+            <h3>Your Profile</h3>
+            <p><strong>Email:</strong> <span id="dash-email">—</span></p>
+            <p><strong>Age:</strong> <span id="dash-age">—</span></p>
+            <p><strong>Location:</strong> <span id="dash-location">—</span></p>
+            <p><strong>Scheme Eligible:</strong> <span id="dash-scheme">—</span></p>
+            <button class="btn-secondary" onclick="logout()">Logout</button>
+          </div>
+          <div class="next-phases">
+            <h3>Coming in Phase 2+</h3>
+            <ul>
+              <li>✅ Phase 1 — Skeleton (you are here)</li>
+              <li>🔜 Phase 2 — Full profile + medical history</li>
+              <li>🔜 Phase 3 — Hospital listing</li>
+              <li>🔜 Phase 4 — Symptom → department routing</li>
+              <li>🔜 Phase 5–7 — Ranking + queue prediction</li>
+              <li>🔜 Phase 8–9 — Cost, schemes & emergency flow</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      QueueLess · B.Tech CSE Project · Phase 1 of 10 · Incremental/Agile SDLC
+    </footer>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
