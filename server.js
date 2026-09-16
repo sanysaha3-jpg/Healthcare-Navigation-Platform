@@ -9,10 +9,9 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'routes', 'public')));
 
 app.use('/api/health', require('./routes/health'));
-app.use('/api/auth', require('./routes/auth'));
 
 app.get('*', (req, res) => {
   if (req.path.startsWith('/api/')) {
@@ -27,7 +26,7 @@ app.listen(PORT, () => {
   console.log('  ║   QueueLess — Phase 1 Skeleton Running       ║');
   console.log('  ╠══════════════════════════════════════════════╣');
   console.log(`  ║   🌐  http://localhost:${PORT}                  ║`);
-  console.log('  ║   📡  API: /api/health, /api/auth            ║');
+  console.log('  ║   📡  API: /api/health                       ║');
   console.log('  ╚══════════════════════════════════════════════╝');
   console.log('');
 });
